@@ -1,0 +1,103 @@
+#myFakeElement
+{
+  color: red
+}
+
+ html
+{
+    width:100%;
+    height: 100%;
+    background:      #121212;
+    text-align:      center;
+    color:           #fff;
+    display:         flex;
+    justify-content: center;
+    align-items:     center;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+}
+
+
+//generate and scale the background
+#background
+{
+background-image: url('background.png');
+height: 800px;
+width: 1200px;
+}
+
+canvas
+{
+position: absolute;
+width: 100%;
+height: 100%;
+
+display: block;
+margin: 0 auto;
+}
+
+#startScreen
+{
+background-image: url('startScreen.png');
+height: 800px;
+width: 1200px;
+}
+
+#startScreen h1 {
+  position:absolute;
+  width: 100%;
+  color: #222;
+  font-size: 40px;
+  text-shadow: 0 1px 2px;
+  animation: pulse 6s linear infinite;
+}
+
+#gameover
+{
+background-image: url('gameOverScreen.png');
+height: 100%;
+width: 100%;
+}
+
+//generate player ship and position it at the bottom center
+#player
+{
+background-image: url('playership.png');
+height: 50px;
+width: 50px;
+position: absolute;
+top: 700px;
+left: 550px;
+}
+
+//enemy needs to be a class as we generate multiple
+.enemy
+{
+background-image: url('enemy1.png');
+height: 50px;
+width: 50px;
+position: absolute;
+}
+
+#projectiles
+{
+height: 800px;
+width: 1200px;
+position: absolute;
+}
+
+.projectile
+{
+background-image: url('projectile.png');
+height: 16px;
+width: 10px;
+position: absolute;
+}
+
+#enemies
+{
+height: 800px;
+width: 1200px;
+position: absolute;
+}
