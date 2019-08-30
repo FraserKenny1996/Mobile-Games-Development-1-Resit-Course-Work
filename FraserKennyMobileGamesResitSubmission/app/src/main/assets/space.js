@@ -62,6 +62,11 @@ console.log("gamestart");
     const sovietImg = new Image();
     sovietImg.src = "background.png";
 
+    var bkgdImage;
+    var enemyimagepng;
+    var playerimagepng;
+    var projectileimagepng;
+
     //record touch input
     var touchX = 0;
     var touchY = 0;
@@ -200,6 +205,24 @@ console.log("gamestart");
 */
 
     }
+
+//taken lab material to try draw to canvas instead of as an image
+    function aSprite(x, y, imageSRC, velx, vely)
+    {
+        this.zindex = 0;
+        this.x = x;
+        this.y = y;
+        this.vx = velx;
+        this.vy = vely;
+        this.sImage = new Image();
+    }
+
+
+     aSprite.prototype.render = function()
+    {
+    canvasContext.drawImage(this.sImage,this.x, this.y);
+    }
+
     //if there has been a change in position redraw the player
     function movePlayer()
     {
@@ -208,6 +231,8 @@ console.log("gamestart");
         playerImage.src = 'playership.png';
         playerImage.onload = function(){
         ctx.drawImage(playerImage, player.left + "px" , player.top + "px",50,50);
+        playerimagepng = new aSprite(player.left,player.top,"enemy1.png", 50, 50);
+
       }
     }
 
@@ -224,6 +249,8 @@ console.log("gamestart");
         projectileImage.onload = function(){
         ctx.drawImage(projectileImage, projectile.left + "px" , projectile.top + "px",10,16);
         //context.drawImage(img,x,y,width,height);
+        projectileimagepng = new aSprite(projectile.left,projectile.top,"projectile.png", 10, 16);
+
         }
 
 //        {
@@ -257,6 +284,7 @@ console.log("gamestart");
         enemyImage.src = 'enemy1.png';
         enemyImage.onload = function(){
         ctx.drawImage(enemyImage, enemy.left + "px" , enemy.top + "px",50,50);
+        enemyimagepng = new aSprite(enemy.left,enemy.top,"enemy1.png", 50, 50);
       }
         }
     }
@@ -366,6 +394,8 @@ console.log("gamestart");
     }
     else
     {
+        bkgdImage = new aSprite(0,0,"gameOver.png", 0, 0);
+
         var pat=ctx.createPattern(gameOverScreen,"repeat");
         ctx.rect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle=pat;
